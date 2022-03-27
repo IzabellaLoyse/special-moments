@@ -1,0 +1,40 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  &__brand,
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: auto;
+    margin-right: 0.6em;
+  }
+}
+
+.navbar__title {
+  transition: 0.4s;
+
+  &:hover {
+    color: rgb(41, 120, 222);
+  }
+}
+
+.navbar__links {
+  &--active {
+    color: rgb(41, 120, 222);
+
+    &:hover {
+      color: rgb(13, 93, 197);
+    }
+  }
+
+  li {
+    margin-right: 1rem;
+  }
+}
