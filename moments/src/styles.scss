@@ -4,9 +4,24 @@
   box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+  outline-offset: 0.25rem;
+}
+
 body {
   font-family: Cambria;
   color: rgb(68, 68, 68);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+}
+
+label {
+  cursor: pointer;
 }
 
 a {
@@ -21,4 +36,41 @@ a {
 
 li {
   list-style: none;
+}
+
+input::placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+textarea::placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+}
+input::-webkit-input-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+textarea::-webkit-input-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+}
+input::-moz-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+textarea::-moz-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+}
+input:-ms-input-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+textarea:-ms-input-placeholder {
+  color: rgb(24, 23, 23);
+  font-weight: 500;
 }

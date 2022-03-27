@@ -1,0 +1,31 @@
+<form class="form">
+  <div class="form__form-group">
+    <label class="form__label" for="title">Título</label>
+    <input
+      class="form__input"
+      type="text"
+      id="title"
+      placeholder="Insira um Título"
+      required
+    />
+  </div>
+
+  <div class="form__form-group">
+    <label class="form__label" for="description">Descrição</label>
+    <textarea
+      class="form__textarea"
+      placeholder="Descreva o seu momento especial"
+      id="description"
+      required
+    ></textarea>
+  </div>
+
+  <div class="form__form-group">
+    <label class="form__label" for="image">
+      Coloque a foto que mais marcou</label
+    >
+    <input class="form__input" type="file" id="image" />
+  </div>
+
+  <input type="submit" value="{{ btnText }}" />
+</form>
