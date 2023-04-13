@@ -85,3 +85,11 @@ textarea:-ms-input-placeholder {
   color: rgb(24, 23, 23);
   font-weight: 400;
 }
+
+.is-invalid {
+  border: 2px solid #dc3545;
+
+  &:focus {
+    border: 2px solid #dc3545;
+  }
+}

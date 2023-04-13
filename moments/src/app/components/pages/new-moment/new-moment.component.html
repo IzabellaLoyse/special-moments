@@ -7,4 +7,7 @@
     >Esse momento ficara visível para todos no Feed</span
   >
 </section>
-<app-moments-form [btnText]="btnText"></app-moments-form>
+<app-moments-form
+  [btnText]="btnText"
+  (onSubmitEvent)="onSubmit($event)"
+></app-moments-form>

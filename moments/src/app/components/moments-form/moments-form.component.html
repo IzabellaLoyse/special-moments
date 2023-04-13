@@ -13,6 +13,7 @@
       formControlName="title"
       placeholder="Insira um título"
       required
+      [appFieldError]="titleField"
       [class.is-invalid]="titleField.invalid && titleField.touched"
     />
 
@@ -27,6 +28,7 @@
       id="description"
       formControlName="description"
       required
+      [appFieldError]="descriptionField"
       [class.is-invalid]="descriptionField.invalid && descriptionField.touched"
     ></textarea>
 
@@ -42,7 +44,9 @@
       type="file"
       id="image"
       formControlName="image"
+      [appFieldError]="imageField"
       [class.is-invalid]="imageField.invalid && imageField.touched"
+      (change)="onFileUpload($event)"
     />
 
     <app-validation-errors [control]="imageField"></app-validation-errors>

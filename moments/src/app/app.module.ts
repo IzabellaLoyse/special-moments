@@ -12,6 +12,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
 import { PageTemplateComponent } from './template/page-template/page-template.component';
 import { ValidationErrorsComponent } from './validators/validation-errors/validation-errors.component';
+import { FieldErrorDirective } from './validators/directives/field-error.directive';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ValidationErrorsComponent } from './validators/validation-errors/valida
     MomentsFormComponent,
     PageTemplateComponent,
     ValidationErrorsComponent,
+    FieldErrorDirective,
   ],
   imports: [
     BrowserModule,
