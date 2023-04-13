@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import {
   AbstractControl,
-  FormControl,
-  FormGroup,
+  UntypedFormControl,
+  UntypedFormGroup,
   Validators,
 } from '@angular/forms';
 import { BehaviorSubject, Subscription } from 'rxjs';
@@ -25,7 +25,7 @@ export class MomentsFormComponent implements OnInit, OnDestroy {
   @Output() onSubmitEvent = new EventEmitter<BehaviorSubject<IMoment>>();
 
   private submitSubscription: Subscription | undefined;
-  public momentForm!: FormGroup;
+  public momentForm!: UntypedFormGroup;
   public titleField!: AbstractControl;
   public descriptionField!: AbstractControl;
   public imageField!: AbstractControl;
@@ -33,11 +33,11 @@ export class MomentsFormComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit(): void {
-    this.momentForm = new FormGroup({
-      id: new FormControl(''),
-      title: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      image: new FormControl('', [Validators.required]),
+    this.momentForm = new UntypedFormGroup({
+      id: new UntypedFormControl(''),
+      title: new UntypedFormControl('', [Validators.required]),
+      description: new UntypedFormControl('', [Validators.required]),
+      image: new UntypedFormControl('', [Validators.required]),
     });
 
     this.titleField = this.momentForm.get('title')!;
