@@ -10,6 +10,8 @@ import { MomentsFormComponent } from './components/moments-form/moments-form.com
 import { AboutComponent } from './components/pages/about/about.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
+import { PageTemplateComponent } from './template/page-template/page-template.component';
+import { ValidationErrorsComponent } from './validators/validation-errors/validation-errors.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { NewMomentComponent } from './components/pages/new-moment/new-moment.com
     HomeComponent,
     NewMomentComponent,
     MomentsFormComponent,
+    PageTemplateComponent,
+    ValidationErrorsComponent,
   ],
   imports: [
     BrowserModule,

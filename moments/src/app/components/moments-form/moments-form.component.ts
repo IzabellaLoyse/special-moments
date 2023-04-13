@@ -15,6 +15,9 @@ export class MomentsFormComponent implements OnInit {
   @Input() btnText!: string;
 
   public momentForm!: FormGroup;
+  public titleField!: AbstractControl;
+  public descriptionField!: AbstractControl;
+  public imageField!: AbstractControl;
 
   constructor() {}
 
@@ -23,19 +26,18 @@ export class MomentsFormComponent implements OnInit {
       id: new FormControl(''),
       title: new FormControl('', [Validators.required]),
       description: new FormControl('', [Validators.required]),
-      image: new FormControl(''),
+      image: new FormControl('', [Validators.required]),
     });
-  }
 
-  get title(): AbstractControl {
-    return this.momentForm.get('title')!;
-  }
-
-  get description(): AbstractControl {
-    return this.momentForm.get('description')!;
+    this.titleField = this.momentForm.get('title')!;
+    this.descriptionField = this.momentForm.get('description')!;
+    this.imageField = this.momentForm.get('image')!;
   }
 
   public onSubmit(): void {
-    if (this.momentForm.invalid) return;
+    if (this.momentForm.invalid) {
+      this.momentForm.markAllAsTouched();
+      return;
+    }
   }
 }

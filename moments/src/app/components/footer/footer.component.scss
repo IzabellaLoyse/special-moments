@@ -13,3 +13,9 @@
     color: rgb(41, 120, 222);
   }
 }
+
+:is(.footer__description, p) {
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+  }
+}

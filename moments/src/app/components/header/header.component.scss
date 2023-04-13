@@ -14,11 +14,19 @@
     width: 4rem;
     height: auto;
     margin-right: 0.6em;
+
+    @media (max-width: 800px) {
+      width: 2.5rem;
+    }
   }
 }
 
 .navbar__title {
   transition: 0.4s;
+
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+  }
 
   &:hover {
     color: rgb(41, 120, 222);
