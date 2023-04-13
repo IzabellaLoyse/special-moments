@@ -13,6 +13,8 @@ import { NewMomentComponent } from './components/pages/new-moment/new-moment.com
 import { PageTemplateComponent } from './template/page-template/page-template.component';
 import { ValidationErrorsComponent } from './validators/validation-errors/validation-errors.component';
 import { FieldErrorDirective } from './validators/directives/field-error.directive';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MessagesComponent } from './components/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,7 @@ import { FieldErrorDirective } from './validators/directives/field-error.directi
     PageTemplateComponent,
     ValidationErrorsComponent,
     FieldErrorDirective,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { FieldErrorDirective } from './validators/directives/field-error.directi
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
