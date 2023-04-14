@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { IMoment } from '../../../interfaces/imoment';
+import { MessageService } from '../../../services/message.service';
 import { MomentsService } from '../../../services/moments.service';
 
 @Component({
@@ -12,7 +14,11 @@ export class NewMomentComponent implements OnInit, OnDestroy {
   private submitSubscription: Subscription | undefined;
   public btnText = 'Compartilhar';
 
-  constructor(private momentsService: MomentsService) {}
+  constructor(
+    private momentsService: MomentsService,
+    private messageService: MessageService,
+    private router: Router
+  ) {}
 
   public ngOnInit(): void {}
 
@@ -25,6 +31,12 @@ export class NewMomentComponent implements OnInit, OnDestroy {
       };
 
       this.momentsService.createMoment(momentForm).subscribe();
+
+      this.messageService.setMessage('Momento criado com sucesso ;)');
+
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 2000);
     });
   }
 

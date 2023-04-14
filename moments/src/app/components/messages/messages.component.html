@@ -1,1 +1,10 @@
-<div></div>
+<section class="message" *ngIf="message">
+  <div class="message__header">
+    <h2>Mensagem automática:</h2>
+
+    <button type="button" class="btn-clear" (click)="onLeave()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </button>
+  </div>
+  <p>{{ message }}</p>
+</section>

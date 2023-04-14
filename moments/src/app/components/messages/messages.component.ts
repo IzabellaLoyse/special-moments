@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'app-messages',
@@ -8,8 +9,17 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class MessagesComponent implements OnInit {
   faTimes = faTimes;
+  public message!: string;
 
-  constructor() {}
+  constructor(public messageService: MessageService) {}
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    this.messageService.message$.subscribe((message) => {
+      this.message = message;
+    });
+  }
+
+  public onLeave(): void {
+    this.messageService.clearMessage();
+  }
 }
