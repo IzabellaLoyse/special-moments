@@ -20,6 +20,14 @@ export class MomentsService {
     return this.http.get<IResponse<IMoment[]>>(this.apiUrl, { headers });
   }
 
+  public getMomentById(id: number): Observable<IResponse<IMoment>> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.get<IResponse<IMoment>>(`${this.apiUrl}/${id}`, {
+      headers,
+    });
+  }
+
   public createMoment(formData: IMoment): Observable<IMoment> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 

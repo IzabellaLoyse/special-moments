@@ -15,6 +15,7 @@ import { ValidationErrorsComponent } from './validators/validation-errors/valida
 import { FieldErrorDirective } from './validators/directives/field-error.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MessagesComponent } from './components/messages/messages.component';
+import { DetailsMomentComponent } from './components/pages/details-moment/details-moment.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MessagesComponent } from './components/messages/messages.component';
     ValidationErrorsComponent,
     FieldErrorDirective,
     MessagesComponent,
+    DetailsMomentComponent,
   ],
   imports: [
     BrowserModule,
