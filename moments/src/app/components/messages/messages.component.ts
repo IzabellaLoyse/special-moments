@@ -11,7 +11,7 @@ export class MessagesComponent implements OnInit {
   faTimes = faTimes;
   public message!: string;
 
-  constructor(public messageService: MessageService) {}
+  constructor(private messageService: MessageService) {}
 
   public ngOnInit(): void {
     this.messageService.message$.subscribe((message) => {
