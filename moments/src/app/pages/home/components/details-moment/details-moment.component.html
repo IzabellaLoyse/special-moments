@@ -1,0 +1,8 @@
+<section *ngIf="moment">
+  <h3>{{ moment.title }}</h3>
+  <img
+    class="moments-container__image"
+    src="{{ baseApiUrl }}uploads/{{ moment.image }}"
+    alt="{{ moment.title }}"
+  />
+</section>

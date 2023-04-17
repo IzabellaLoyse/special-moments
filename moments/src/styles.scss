@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 * {
   padding: 0;
   margin: 0;
@@ -12,7 +14,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  color: rgb(68, 68, 68);
+  color: map-get($colors, "secondary-color");
   line-height: 1.5;
 }
 
@@ -30,7 +32,7 @@ textarea {
 
 a {
   text-decoration: none;
-  color: rgb(68, 68, 68);
+  color: map-get($colors, "secondary-color");
   transition: 0.4s;
 
   @media (max-width: 800px) {
@@ -38,7 +40,7 @@ a {
   }
 
   &:hover {
-    color: rgb(41, 120, 222);
+    color: map-get($colors, "primary-color");
   }
 }
 
@@ -47,49 +49,49 @@ li {
 }
 
 input::placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 textarea::placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 input::-webkit-input-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 textarea::-webkit-input-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 input::-moz-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 textarea::-moz-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 input:-ms-input-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 textarea:-ms-input-placeholder {
-  color: rgb(24, 23, 23);
-  font-weight: 400;
+  color: map-get($colors, "color-placeholder");
+  font-weight: map-get($font-weights, "regular");
 }
 
 .is-invalid {
-  border: 2px solid #dc3545;
+  border: 2px solid map-get($colors, "color-invalid");
 
   &:focus {
-    border: 2px solid #dc3545;
+    border: 2px solid map-get($colors, "color-invalid");
   }
 }

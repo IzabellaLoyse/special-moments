@@ -1,0 +1,12 @@
+@import "variables.scss";
+
+.validation-error {
+  margin-top: 0.2em;
+  margin-left: 0.2em;
+
+  p {
+    color: map-get($colors, "color-invalid");
+    font-weight: map-get($font-weights, "regular");
+    font-size: 0.8rem;
+  }
+}

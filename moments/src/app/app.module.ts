@@ -4,41 +4,19 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HeaderComponent } from './components/header/header.component';
-import { MomentsFormComponent } from './components/moments-form/moments-form.component';
-import { AboutComponent } from './components/pages/about/about.component';
-import { HomeComponent } from './components/pages/home/home.component';
-import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
-import { PageTemplateComponent } from './template/page-template/page-template.component';
-import { ValidationErrorsComponent } from './validators/validation-errors/validation-errors.component';
-import { FieldErrorDirective } from './validators/directives/field-error.directive';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MessagesComponent } from './components/messages/messages.component';
-import { DetailsMomentComponent } from './components/pages/details-moment/details-moment.component';
+import { SharedModule } from './shared/shared.module';
+import { FooterComponent } from './template/components/footer/footer.component';
+import { HeaderComponent } from './template/components/header/header.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    AboutComponent,
-    HomeComponent,
-    NewMomentComponent,
-    MomentsFormComponent,
-    PageTemplateComponent,
-    ValidationErrorsComponent,
-    FieldErrorDirective,
-    MessagesComponent,
-    DetailsMomentComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

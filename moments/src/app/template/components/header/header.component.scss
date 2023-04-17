@@ -1,0 +1,50 @@
+@import "variables.scss";
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  &__brand,
+  &__links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: auto;
+    margin-right: 0.6em;
+
+    @media (max-width: 800px) {
+      width: 2.5rem;
+    }
+  }
+}
+
+.navbar__title {
+  transition: 0.4s;
+
+  @media (max-width: 800px) {
+    font-size: 0.8rem;
+  }
+
+  &:hover {
+    color: map-get($colors, "primary-color");
+  }
+}
+
+.navbar__links {
+  &--active {
+    color: map-get($colors, "primary-color");
+
+    &:hover {
+      color: #0d5dc5;
+    }
+  }
+
+  li {
+    margin-right: 1rem;
+  }
+}

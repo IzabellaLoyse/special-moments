@@ -1,15 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './components/pages/about/about.component';
-import { DetailsMomentComponent } from './components/pages/details-moment/details-moment.component';
-import { HomeComponent } from './components/pages/home/home.component';
-import { NewMomentComponent } from './components/pages/new-moment/new-moment.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'moments/new', component: NewMomentComponent },
-  { path: 'moments/:id', component: DetailsMomentComponent },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+  },
+
+  {
+    path: 'moments',
+    loadChildren: () =>
+      import('./pages/moments/moments.module').then((m) => m.MomentsModule),
+  },
+
+  {
+    path: 'about',
+    loadChildren: () =>
+      import('./pages/about/about.module').then((m) => m.AboutModule),
+  },
 ];
 
 @NgModule({

@@ -1,0 +1,29 @@
+@import "variables.scss";
+
+.section {
+  margin-top: 1rem;
+  margin-bottom: 1.3rem;
+
+  &__title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: map-get($font-weights, "medium");
+  }
+
+  span {
+    color: map-get($colors, "primary-color");
+    font-weight: map-get($font-weights, "bold");
+  }
+
+  & > &__brand {
+    display: block;
+    padding-top: 1rem;
+    text-align: center;
+  }
+}
+
+:is(.section__title, span) {
+  @media (max-width: 800px) {
+    font-size: 0.9rem;
+  }
+}
