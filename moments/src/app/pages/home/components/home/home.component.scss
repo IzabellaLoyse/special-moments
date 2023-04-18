@@ -86,3 +86,10 @@ a {
     font-size: 1rem;
   }
 }
+
+.no-moments {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}

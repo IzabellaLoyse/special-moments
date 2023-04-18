@@ -13,26 +13,32 @@
     </form>
   </div>
 
-  <div *ngIf="moments.length > 0; else noMoments">
-    <div class="moments-container">
-      <div class="moments-container__moment" *ngFor="let moment of moments">
-        <h3 class="moments-container__title">{{ moment.title }}</h3>
-        <img
-          class="moments-container__image"
-          src="{{ baseApiUrl }}uploads/{{ moment.image }}"
-          alt="{{ moment.title }}"
-        />
-        <p class="moments-container__date">
-          Publicado em {{ moment.created_at | date : "dd/MM/yyyy" }}
-        </p>
-        <p>Comentários {{ moment.comments!.length }}</p>
-        <p><a routerLink="moments/{{ moment.id }}">Detalhes do Post</a></p>
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <div *ngIf="!isLoading">
+    <div *ngIf="moments.length > 0; else noMoments">
+      <div class="moments-container">
+        <div class="moments-container__moment" *ngFor="let moment of moments">
+          <h3 class="moments-container__title">{{ moment.title }}</h3>
+          <img
+            class="moments-container__image"
+            src="{{ baseApiUrl }}uploads/{{ moment.image }}"
+            alt="{{ moment.title }}"
+          />
+          <p class="moments-container__date">
+            Publicado em {{ moment.created_at | date : "dd/MM/yyyy" }}
+          </p>
+          <p>Comentários {{ moment.comments!.length }}</p>
+          <p><a routerLink="moments/{{ moment.id }}">Detalhes do Post</a></p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <ng-template #noMoments>
-    <h2>Não há momentos para serem exibidos!</h2>
-    <a routerLink="/moments/new">Quero compartilhar um momento especial</a>
-  </ng-template>
+    <ng-template #noMoments>
+      <section class="no-moments">
+        <h2>Não há momentos para serem exibidos!</h2>
+        <a routerLink="/moments/new">Quero compartilhar um momento especial</a>
+      </section>
+    </ng-template>
+  </div>
 </section>

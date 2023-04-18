@@ -19,17 +19,20 @@ export class HomeComponent implements OnInit {
   public allMoments: IMoment[] = [];
   public moments: IMoment[] = [];
   public baseApiUrl = environment.baseApiUrl;
+  public isLoading = false;
 
   constructor(private momentsService: MomentsService) {
     registerLocaleData(localePt);
   }
 
   public ngOnInit(): void {
+    this.isLoading = true;
     this.momentsService.getMoments().subscribe((items) => {
       const data = items.data;
 
       this.allMoments = data;
       this.moments = data;
+      this.isLoading = false;
     });
   }
 

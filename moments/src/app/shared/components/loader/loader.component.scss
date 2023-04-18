@@ -1,0 +1,23 @@
+@import "variables.scss";
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid map-get($colors, "primary-color");
+  border-radius: 50%;
+  width: 7.5rem;
+  height: 7.5rem;
+  animation: spin 2s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
