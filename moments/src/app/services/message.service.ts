@@ -12,7 +12,7 @@ export class MessageService {
 
   public setMessage(message: string): void {
     this.messageSubject.next(message);
-    timer(2000)
+    timer(1100)
       .pipe(delay(0))
       .subscribe(() => {
         this.clearMessage();

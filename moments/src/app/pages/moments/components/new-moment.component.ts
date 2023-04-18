@@ -13,6 +13,7 @@ import { MomentsService } from '../../../services/moments.service';
 export class NewMomentComponent implements OnInit, OnDestroy {
   private submitSubscription: Subscription | undefined;
   public btnText = 'Compartilhar';
+  public isLoading = false;
 
   constructor(
     private momentsService: MomentsService,
@@ -23,6 +24,7 @@ export class NewMomentComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {}
 
   public onSubmit(momentData$: BehaviorSubject<IMoment>) {
+    this.isLoading = true;
     this.submitSubscription = momentData$.subscribe((data) => {
       const momentForm = {
         title: data.title,
@@ -34,9 +36,9 @@ export class NewMomentComponent implements OnInit, OnDestroy {
 
       this.messageService.setMessage('Momento criado com sucesso ;)');
 
-      setTimeout(() => {
-        this.router.navigate(['/']);
-      }, 2000);
+      this.isLoading = false;
+
+      this.router.navigate(['/']);
     });
   }
 

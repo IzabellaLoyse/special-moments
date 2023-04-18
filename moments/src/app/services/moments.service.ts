@@ -41,4 +41,12 @@ export class MomentsService {
       headers,
     });
   }
+
+  public updateMoment(id: number, formData: IMoment): Observable<IMoment> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+    return this.http.put<IMoment>(`${this.apiUrl}/${id}`, formData, {
+      headers,
+    });
+  }
 }

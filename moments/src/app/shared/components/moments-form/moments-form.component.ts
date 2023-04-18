@@ -22,6 +22,7 @@ import { IMoment } from '../../../interfaces/imoment';
 })
 export class MomentsFormComponent implements OnInit, OnDestroy {
   @Input() btnText!: string;
+  @Input() momentData: IMoment | null = null;
   @Output() onSubmitEvent = new EventEmitter<BehaviorSubject<IMoment>>();
 
   private submitSubscription: Subscription | undefined;
@@ -39,6 +40,10 @@ export class MomentsFormComponent implements OnInit, OnDestroy {
       description: new UntypedFormControl('', [Validators.required]),
       image: new UntypedFormControl('', [Validators.required]),
     });
+
+    if (this.momentData) {
+      this.momentForm.patchValue(this.momentData);
+    }
 
     this.titleField = this.momentForm.get('title')!;
     this.descriptionField = this.momentForm.get('description')!;
