@@ -2,11 +2,32 @@
   <app-loader *ngIf="isLoading"></app-loader>
 </ng-container>
 
-<section *ngIf="moment">
+<section class="moment-wrapper" *ngIf="moment">
   <h3>{{ moment.title }}</h3>
   <img
     class="moments-container__image"
     src="{{ baseApiUrl }}uploads/{{ moment.image }}"
     alt="{{ moment.title }}"
   />
+
+  <div class="moment-wrapper__about">
+    <h3>Sobre este momento especial</h3>
+    <p>{{ moment.description }}</p>
+  </div>
+
+  <div class="moment-wrapper__actions">
+    <a routerLink="/moments/edit/{{ moment.id }}" class="btn-edit">
+      <fa-icon [icon]="faEdit"></fa-icon>
+      Editar momento
+    </a>
+
+    <button class="btn-delete" (click)="onDelete(moment.id!)">
+      <fa-icon [icon]="faTimes"></fa-icon>
+      Excluir momento
+    </button>
+  </div>
+
+  <div class="comments">
+    <h4>Comentários</h4>
+  </div>
 </section>

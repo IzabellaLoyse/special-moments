@@ -34,9 +34,11 @@ export class MomentsService {
     return this.http.post<IMoment>(this.apiUrl, formData, { headers });
   }
 
-  public deleteMoment(id: number): Observable<IMoment> {
+  public deleteMoment(id: number): Observable<IResponse<IMoment>> {
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-    return this.http.delete<IMoment>(`${this.apiUrl}/${id}`, { headers });
+    return this.http.delete<IResponse<IMoment>>(`${this.apiUrl}/${id}`, {
+      headers,
+    });
   }
 }
