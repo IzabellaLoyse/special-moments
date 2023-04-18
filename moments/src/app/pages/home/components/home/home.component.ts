@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { delay } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
 import { IMoment } from '../../../../interfaces/imoment';
 import { MomentsService } from '../../../../services/moments.service';
@@ -27,13 +28,17 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isLoading = true;
-    this.momentsService.getMoments().subscribe((items) => {
-      const data = items.data;
+    this.momentsService
+      .getMoments()
+      .pipe(delay(2000))
 
-      this.allMoments = data;
-      this.moments = data;
-      this.isLoading = false;
-    });
+      .subscribe((items) => {
+        const data = items.data;
+
+        this.allMoments = data;
+        this.moments = data;
+        this.isLoading = false;
+      });
   }
 
   public searchMoment(event: Event): void {

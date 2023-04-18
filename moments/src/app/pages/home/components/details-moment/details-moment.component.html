@@ -1,3 +1,7 @@
+<ng-container>
+  <app-loader *ngIf="isLoading"></app-loader>
+</ng-container>
+
 <section *ngIf="moment">
   <h3>{{ moment.title }}</h3>
   <img

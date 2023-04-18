@@ -13,7 +13,9 @@
     </form>
   </div>
 
-  <app-loader *ngIf="isLoading"></app-loader>
+  <ng-container>
+    <app-loader *ngIf="isLoading"></app-loader>
+  </ng-container>
 
   <div *ngIf="!isLoading">
     <div *ngIf="moments.length > 0; else noMoments">
