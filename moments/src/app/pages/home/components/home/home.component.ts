@@ -2,7 +2,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { Component, LOCALE_ID, OnInit } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { delay } from 'rxjs';
+import { delay, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 import { environment } from '../../../../../environments/environment';
 import { IMoment } from '../../../../interfaces/imoment';
 import { MomentsService } from '../../../../services/moments.service';
@@ -28,9 +29,21 @@ export class HomeComponent implements OnInit {
 
   public ngOnInit(): void {
     this.isLoading = true;
+
     this.momentsService
       .getMoments()
-      .pipe(delay(2000))
+      .pipe(
+        delay(2000),
+
+        catchError((error) => {
+          if (error) {
+            this.isLoading = false;
+            this.moments = [];
+          }
+
+          return throwError(() => error);
+        })
+      )
 
       .subscribe((items) => {
         const data = items.data;

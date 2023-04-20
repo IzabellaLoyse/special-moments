@@ -1,0 +1,39 @@
+<form
+  class="form"
+  [formGroup]="commentsForm"
+  #formDir="ngForm"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="form-group">
+    <label class="form-group__label" for="text">Comente</label>
+    <textarea
+      class="form-group__textarea"
+      placeholder="Insira seu comentário"
+      id="text"
+      formControlName="text"
+      required
+      [appFieldError]="commentField"
+      [class.is-invalid]="commentField.invalid && commentField.touched"
+    ></textarea>
+
+    <app-validation-errors [control]="commentField"></app-validation-errors>
+  </div>
+
+  <div class="form-group">
+    <label class="form-group__label" for="username">Seu nome</label>
+    <input
+      class="form-group__input"
+      type="text"
+      id="username"
+      formControlName="username"
+      placeholder="Insira seu nome"
+      required
+      [appFieldError]="usernameField"
+      [class.is-invalid]="usernameField.invalid && usernameField.touched"
+    />
+
+    <app-validation-errors [control]="usernameField"></app-validation-errors>
+  </div>
+
+  <input type="submit" value="{{ btnText }}" class="btn-submit" />
+</form>

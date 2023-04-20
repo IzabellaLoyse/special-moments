@@ -27,7 +27,33 @@
     </button>
   </div>
 
-  <div class="comments">
-    <h4>Comentários</h4>
-  </div>
+  <section class="comments">
+    <h4>
+      Comentários ({{
+        moment.comments!.length > 0 ? moment.comments!.length : 0
+      }})
+    </h4>
+
+    <div *ngIf="moment.comments!.length > 0; else noComments">
+      <div class="comments-container" *ngFor="let comment of moment.comments">
+        <p class="comments-container__comment">{{ comment.text }}</p>
+
+        <p class="comments-container__author">
+          <span>Por </span>
+          {{ comment.username }}
+        </p>
+      </div>
+    </div>
+
+    <ng-template #noComments>
+      <p>Nenhum comentário para este momento</p>
+    </ng-template>
+  </section>
+
+  <app-comments-form (onSubmitEvent)="onSubmit($event)"></app-comments-form>
+</section>
+
+<section class="has-error-container" *ngIf="moment === undefined">
+  <h2>Não há momentos para serem exibidos!</h2>
+  <a routerLink="/moments/new">Quero compartilhar um momento especial</a>
 </section>

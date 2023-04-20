@@ -12,6 +12,7 @@ import { MomentsService } from '../../../services/moments.service';
 })
 export class NewMomentComponent implements OnInit, OnDestroy {
   private submitSubscription: Subscription | undefined;
+
   public btnText = 'Compartilhar';
   public isLoading = false;
 
@@ -23,7 +24,7 @@ export class NewMomentComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {}
 
-  public onSubmit(momentData$: BehaviorSubject<IMoment>) {
+  public onSubmit(momentData$: BehaviorSubject<IMoment>): void {
     this.isLoading = true;
     this.submitSubscription = momentData$.subscribe((data) => {
       const momentForm = {

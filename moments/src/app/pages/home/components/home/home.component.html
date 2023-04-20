@@ -37,7 +37,7 @@
     </div>
 
     <ng-template #noMoments>
-      <section class="no-moments">
+      <section class="no-moments" *ngIf="moments.length === 0">
         <h2>Não há momentos para serem exibidos!</h2>
         <a routerLink="/moments/new">Quero compartilhar um momento especial</a>
       </section>

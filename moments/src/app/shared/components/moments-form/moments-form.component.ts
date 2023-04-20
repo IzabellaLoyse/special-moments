@@ -69,6 +69,7 @@ export class MomentsFormComponent implements OnInit, OnDestroy {
     const momentData$ = new BehaviorSubject<IMoment>(momentData);
 
     this.submitSubscription = this.onSubmitEvent.subscribe();
+
     this.onSubmitEvent.emit(momentData$);
   }
 
